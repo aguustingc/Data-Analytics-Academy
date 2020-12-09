@@ -1,0 +1,110 @@
+1.
+SELECT title, release_year, special_features, rating
+FROM film
+
+2.
+SELECT first_name, last_name
+FROM actor
+
+3.
+SELECT customer_id, first_name, email
+FROM customer
+
+4.
+SELECT *
+FROM staff
+
+5.
+SELECT *
+FROM film_list
+
+6.
+SELECT *
+FROM payment
+WHERE amount = 0.99
+
+7.
+SELECT customer_id, rental_id, amount
+FROM payment
+WHERE amount = 0.99
+
+8.
+SELECT *
+FROM payment
+WHERE customer_id = 386 AND amount > 2
+
+9.
+SELECT DISTINCT title
+FROM film_list
+WHERE category = 'Horror'
+
+10.
+SELECT DISTINCT title, length, rating
+FROM film_list
+WHERE category = 'Foreign' AND length > 120
+
+11.
+SELECT * 
+FROM actor
+WHERE last_name IN ('KILMER', 'BLOOM', 'WAYNE')
+
+12.
+SELECT title, rental_duration, length
+FROM film
+WHERE rental_duration BETWEEN 4 AND 6
+
+13.
+SELECT *
+FROM customer
+WHERE first_name LIKE 'CH%' AND store_id=2
+ORDER BY first_name
+
+14.
+SELECT DISTINCT category
+FROM inventory JOIN film_list
+ON inventory.inventory_id = film_list.FID
+
+15.
+SELECT *
+FROM film
+WHERE rental_rate <4
+AND length BETWEEN 80 AND 110
+AND rating = 'PG-13'
+
+16.
+SELECT DISTINCT rating
+FROM film
+
+17.
+SELECT *
+from customer_list
+WHERE country in ('Argentina','Bolivia')
+ORDER BY country, name
+
+18.
+SELECT COUNT(*)
+from customer
+WHERE active = 0
+
+19.
+SELECT MAX(amount) AS 'MAXIMO', MIN(amount) AS 'MINIMO', AVG(amount) AS 'PROMEDIO'
+FROM payment
+Where amount > 0;
+
+20.
+SELECT count(title) as 'Cantidad ATP', round(avg(length), 2) as 'D. Promedio'
+FROM film
+WHERE rating LIKE '%G%'
+
+21.
+SELECT count() As "Clientes Latam"
+FROM customer_list
+WHERE country IN ('Argentina','Brazil','Bolivia', 'Chile');
+
+SELECT count() As "Clientes Latam v2"
+FROM customer_list
+WHERE country in ('Colombia', 'Costa Rica', 'Cuba', 'Ecuador', 'El Salvador', 'Guatemala', 
+'Honduras', 'Mexico', 'Nicaragua', 'Panama', 'Paraguay', 'Peru', 'Puerto Rico','Republica Dominicana', 
+'Uruguay','Venezuela');
+
+
